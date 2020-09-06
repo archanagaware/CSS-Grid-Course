@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/style.css">
+  <title>CSS Grid Auto Flow</title>
+</head>
+<body>
+  <div class="container">
+      <div class="item sidebar1">I'm Sidebar #1</div>
+      <div class="item content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+            minim veniam.</p>
+      </div>
+      <div class="item sidebar2">I'm Sidebar #2</div>
+      <div class="item footer">I'm the footer</div>
+  </div>
+  <style>
+        .container {
+          display: grid;
+          grid-gap: 20px;
+          grid-template-columns: 1fr 10fr 1fr;
+          grid-template-rows: auto-fit auto-fit auto-fit;
+          grid-template-areas: 
+            "sidebar1 content sidebar2"
+            "sidebar1 content sidebar2"
+            "footer footer footer";
+        }
+        .footer {
+            grid-area: footer;
+        }
+        .sidebar1 {
+            grid-area: sidebar1
+        }
+        .content {
+            grid-area: content;
+        }
+        .sidebar2 {
+            grid-area: sidebar2
+        }
+
+        @media (max-width: 700px){
+            .container {
+                grid-template-areas: 
+                    "content content content"
+                    "sidebar1 sidebar1 sidebar2"
+                    "footer footer footer";
+            }
+        }
+  </style>
+</body>
+
+</html>
